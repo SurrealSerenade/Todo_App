@@ -1,6 +1,6 @@
-import { IRootAction } from '../actions/root.actions';
-import { RootDispatchTypes } from '../enums';
 import { IAppState } from '../states';
+import { RootDispatchTypes } from '../enums';
+import { IRootAction } from '../actions/root.actions';
 
 import * as AppConstants from '../i18n/en-UK.json';
 

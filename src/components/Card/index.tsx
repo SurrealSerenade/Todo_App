@@ -1,7 +1,8 @@
 import { DragEvent, ReactNode, useContext } from 'react';
+
+import KanbanContext from '../../states';
 import { RootDispatchTypes } from '../../enums';
 import { useDraggable } from '../../hooks/useDraggable';
-import KanbanContext from '../../states';
 
 import './styles.css';
 

@@ -1,9 +1,9 @@
-import { useContext } from 'react';
-import { DragEvent } from 'react';
-import { useDraggable } from '../../hooks/useDraggable';
-import { IBoard } from '../../interfaces';
-import KanbanContext from '../../states';
+import { useContext, DragEvent } from 'react';
+
 import { Card } from '../Card';
+import KanbanContext from '../../states';
+import { IBoard } from '../../interfaces';
+import { useDraggable } from '../../hooks/useDraggable';
 
 import './styles.css';
 

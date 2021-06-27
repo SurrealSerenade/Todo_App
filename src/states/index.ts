@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+
 import { BoardTitles } from '../enums';
 import { IAppAction } from '../actions';
 import { IBoard, IDraggedItem } from '../interfaces';

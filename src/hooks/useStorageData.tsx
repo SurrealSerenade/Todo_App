@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect, Dispatch } from 'react';
+
 import { IAppAction } from '../actions';
 import { RootDispatchTypes } from '../enums';
 
 export const useStorageData = <T,>(
   storeName: string,
-  dispatch: React.Dispatch<IAppAction<T>>
+  dispatch: Dispatch<IAppAction<T>>
 ) => {
   useEffect(() => {
     if (localStorage.getItem(storeName)) {
