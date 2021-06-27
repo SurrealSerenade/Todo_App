@@ -1,0 +1,17 @@
+.board {
+  flex: 1;
+  background-color: #c0c6d2;
+  border-radius: 8px;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.board__title {
+  text-align: center;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}

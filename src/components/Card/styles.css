@@ -1,0 +1,37 @@
+.card {
+  position: relative;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  display: block;
+  margin: 0.5rem;
+  width: 100%;
+  max-width: calc(100% - 2rem);
+  transition: all 500ms;
+}
+
+.card .card__action {
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  font-size: 0.75rem;
+}
+
+/* 
+.dnd-item {
+  background-color: #fff;
+  color: #282c34;
+  min-height: 150px;
+  font-weight: bold;
+}
+
+.dnd-item:not(:last-of-type) {
+  margin-bottom: 0.5rem;
+}
+
+.group-title {
+  text-align: left;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+} */
