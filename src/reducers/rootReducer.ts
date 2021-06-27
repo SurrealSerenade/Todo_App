@@ -4,7 +4,7 @@ import { IRootAction } from '../actions/root.actions';
 
 import * as AppConstants from '../i18n/en-UK.json';
 
-export const dragReducer = <T>(state: IAppState<T>, action: IRootAction<T>) => {
+export const rootReducer = <T>(state: IAppState<T>, action: IRootAction<T>) => {
   switch (action.type) {
     case RootDispatchTypes.AddTodo:
     case RootDispatchTypes.UpdateBoards:
@@ -31,12 +31,6 @@ export const dragReducer = <T>(state: IAppState<T>, action: IRootAction<T>) => {
       };
 
     case RootDispatchTypes.StoreDraggedItem:
-      return {
-        ...state,
-        draggedItem: action.payload.draggedItem,
-        draggedNode: action.payload.draggedNode,
-      };
-
     case RootDispatchTypes.UpdateDraggedItem:
       return {
         ...state,
@@ -47,7 +41,6 @@ export const dragReducer = <T>(state: IAppState<T>, action: IRootAction<T>) => {
       return {
         ...state,
         draggedItem: undefined,
-        draggedNode: undefined,
       };
   }
 };

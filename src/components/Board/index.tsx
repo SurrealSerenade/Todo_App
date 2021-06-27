@@ -20,7 +20,7 @@ export const Board = ({ board, boardIndex }: IProps) => {
     (board: IBoard<string>, boardIndex: number) =>
     (e: DragEvent<HTMLDivElement>) => {
       return state.isDragging && !board.items.length
-        ? handleDragEnter(e, { boardIndex, itemIndex: 0 })
+        ? handleDragEnter({ boardIndex, itemIndex: 0 })
         : undefined;
     };
 

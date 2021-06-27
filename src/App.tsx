@@ -2,7 +2,7 @@ import { Reducer, useReducer } from 'react';
 
 import Kanban from './Kanban';
 import { IAppAction } from './actions';
-import { dragReducer } from './reducers/dragReducer';
+import { rootReducer } from './reducers/rootReducer';
 import { useStorageData } from './hooks/useStorageData';
 import { IAppState, initialState, KanbanContextProvider } from './states';
 
@@ -12,7 +12,7 @@ import * as AppConstants from './i18n/en-UK.json';
 function App() {
   const [state, dispatch] = useReducer<
     Reducer<IAppState<string>, IAppAction<string>>
-  >(dragReducer, initialState);
+  >(rootReducer, initialState);
   useStorageData(AppConstants.storageName, dispatch);
 
   return (

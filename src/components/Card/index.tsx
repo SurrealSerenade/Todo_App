@@ -26,7 +26,7 @@ export const Card = ({ children, boardIndex, itemIndex }: IProps) => {
     (boardIndex: number, itemIndex: number) =>
     (e: DragEvent<HTMLDivElement>) => {
       return state.isDragging
-        ? handleDragEnter(e, { boardIndex, itemIndex })
+        ? handleDragEnter({ boardIndex, itemIndex })
         : undefined;
     };
 

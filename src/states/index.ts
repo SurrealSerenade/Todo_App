@@ -8,7 +8,6 @@ export interface IAppState<T> {
   boards: IBoard<T>[];
   isDragging: boolean;
   draggedItem?: IDraggedItem;
-  draggedNode?: ReactNode;
 }
 
 export const initialState: IAppState<string> = {

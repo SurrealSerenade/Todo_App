@@ -29,7 +29,6 @@ export interface IStoreDraggedItem {
   type: typeof RootDispatchTypes.StoreDraggedItem;
   payload: {
     draggedItem: IDraggedItem;
-    draggedNode: ReactNode;
   };
 }
 
