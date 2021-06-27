@@ -3,17 +3,21 @@ import React, { useContext, useState } from 'react';
 import KanbanContext from '../../states';
 import { BoardTitles, RootDispatchTypes } from '../../enums';
 
+import './styles.css';
+import * as AppConstants from '../../i18n/en-UK.json';
+
 export const Header = () => {
   const { state, dispatch } = useContext(KanbanContext);
 
   const [title, setTitle] = useState('');
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setTitle(e.currentTarget.value);
+    setTitle(e.currentTarget.value.trim());
   };
 
-  const handleClick = () => {
+  const handleSubmit = (e: React.FormEvent) => {
     if (title.trim() === '') return;
+    e.preventDefault();
 
     let list = [...state.boards];
     list = list.map((value, index) => {
@@ -30,17 +34,23 @@ export const Header = () => {
       payload: list,
     });
   };
+
   return (
     <header>
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <input
           required
           type="text"
           value={title}
           className="form__element"
+          placeholder={AppConstants.header.placeholder}
           onChange={handleChange}
         />
-        <button className="fomr__button" type="button" onClick={handleClick}>
+        <button
+          className="form__button"
+          type="submit"
+          aria-label={AppConstants.header.addTodo}
+        >
           +
         </button>
       </form>

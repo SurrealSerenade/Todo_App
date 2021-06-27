@@ -1,3 +1,7 @@
 {
-  "storageName": "kanban"
+  "storageName": "kanban",
+  "header": {
+    "placeholder": "Enter title for card...",
+    "addTodo": "Add a to do card"
+  }
 }

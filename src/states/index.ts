@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
 import { BoardTitles } from '../enums';
 import { IAppAction } from '../actions';
@@ -14,7 +14,7 @@ export const initialState: IAppState<string> = {
   boards: [
     {
       title: BoardTitles.ToDo,
-      items: ['Create styles', 'Hello World', 'TEst 1, 3,4'],
+      items: ['Hello World!!!'],
     },
     { title: BoardTitles.InProgress, items: [] },
     { title: BoardTitles.Complete, items: [] },
