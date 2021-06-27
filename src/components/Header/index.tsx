@@ -12,12 +12,16 @@ export const Header = () => {
   const [title, setTitle] = useState('');
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setTitle(e.currentTarget.value.trim());
+    setTitle(e.currentTarget.value);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    if (title.trim() === '') return;
     e.preventDefault();
+
+    if (title.trim() === '') {
+      setTitle('');
+      return;
+    }
 
     let list = [...state.boards];
     list = list.map((value, index) => {

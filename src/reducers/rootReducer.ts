@@ -8,7 +8,6 @@ export const rootReducer = <T>(state: IAppState<T>, action: IRootAction<T>) => {
   switch (action.type) {
     case RootDispatchTypes.AddTodo:
     case RootDispatchTypes.UpdateBoards:
-    case RootDispatchTypes.DragEnter:
       localStorage.setItem(
         AppConstants.storageName,
         JSON.stringify(action.payload)
@@ -18,28 +17,28 @@ export const rootReducer = <T>(state: IAppState<T>, action: IRootAction<T>) => {
         boards: action.payload,
       };
 
+    case RootDispatchTypes.UpdateStore:
+      localStorage.setItem(
+        AppConstants.storageName,
+        JSON.stringify(action.payload.boards)
+      );
+      return {
+        ...state,
+        boards: action.payload.boards,
+        draggedItem: action.payload.draggedItem,
+      };
+
     case RootDispatchTypes.DragStart:
       return {
         ...state,
         isDragging: true,
+        draggedItem: action.payload.draggedItem,
       };
 
     case RootDispatchTypes.DragEnd:
       return {
         ...state,
         isDragging: false,
-      };
-
-    case RootDispatchTypes.StoreDraggedItem:
-    case RootDispatchTypes.UpdateDraggedItem:
-      return {
-        ...state,
-        draggedItem: action.payload.draggedItem,
-      };
-
-    case RootDispatchTypes.ClearDraggedItem:
-      return {
-        ...state,
         draggedItem: undefined,
       };
   }

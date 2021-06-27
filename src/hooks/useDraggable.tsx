@@ -10,39 +10,32 @@ export const useDraggable = () => {
   const handleDragStart = (e: DragEvent, item: IDraggedItem) => {
     e.target.addEventListener('dragend', handleDragEnd);
 
-    dispatch({
-      type: RootDispatchTypes.StoreDraggedItem,
-      payload: {
-        draggedItem: item,
-      },
-    });
-
     setTimeout(() => {
       dispatch({
         type: RootDispatchTypes.DragStart,
+        payload: {
+          draggedItem: item,
+        },
       });
     }, 0);
   };
 
   const handleDragEnter = useCallback(
     (targetItem: IDraggedItem) => {
-      let newList = [...state.boards];
-      let itemIndex = targetItem.itemIndex;
-      let currentGroup = newList[state.draggedItem!.boardIndex];
-      let currentItems = currentGroup.items;
-      let element = currentItems.splice(state.draggedItem!.itemIndex, 1)[0];
-      newList[targetItem.boardIndex].items.splice(itemIndex, 0, element);
+      if (!state.draggedItem) return;
+      let list = [...state.boards];
+      let { boardIndex, itemIndex } = targetItem;
+      let currentBoard = list[state.draggedItem.boardIndex];
+      let boardItems = currentBoard.items;
+      let item = boardItems.splice(state.draggedItem.itemIndex, 1)[0];
+      list[boardIndex].items.splice(itemIndex, 0, item);
 
       dispatch({
-        type: RootDispatchTypes.UpdateDraggedItem,
+        type: RootDispatchTypes.UpdateStore,
         payload: {
+          boards: list,
           draggedItem: targetItem,
         },
-      });
-
-      dispatch({
-        type: RootDispatchTypes.DragEnter,
-        payload: newList,
       });
     },
     [state.draggedItem, dispatch, state.boards]
@@ -51,10 +44,6 @@ export const useDraggable = () => {
   const handleDragEnd = useCallback(() => {
     dispatch({
       type: RootDispatchTypes.DragEnd,
-    });
-
-    dispatch({
-      type: RootDispatchTypes.ClearDraggedItem,
     });
   }, [dispatch]);
 

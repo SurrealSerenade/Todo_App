@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { RootDispatchTypes } from '../enums';
 import { IBoard, IDraggedItem } from '../interfaces';
 
@@ -7,48 +6,33 @@ export interface IAddTodo<T> {
   payload: IBoard<T>[];
 }
 
-export interface IUpdateStore<T> {
+export interface IUpdateBoards<T> {
   type: typeof RootDispatchTypes.UpdateBoards;
   payload: IBoard<T>[];
 }
 
 export interface IDragStart {
   type: typeof RootDispatchTypes.DragStart;
+  payload: {
+    draggedItem: IDraggedItem;
+  };
 }
 
-export interface IDragEnter<T> {
-  type: typeof RootDispatchTypes.DragEnter;
-  payload: IBoard<T>[];
+export interface IUpdateStore<T> {
+  type: typeof RootDispatchTypes.UpdateStore;
+  payload: {
+    boards: IBoard<T>[];
+    draggedItem: IDraggedItem;
+  };
 }
 
 export interface IDragEnd {
   type: typeof RootDispatchTypes.DragEnd;
 }
 
-export interface IStoreDraggedItem {
-  type: typeof RootDispatchTypes.StoreDraggedItem;
-  payload: {
-    draggedItem: IDraggedItem;
-  };
-}
-
-export interface IUpdateDraggedItem {
-  type: typeof RootDispatchTypes.UpdateDraggedItem;
-  payload: {
-    draggedItem: IDraggedItem;
-  };
-}
-
-export interface IClearDraggedItem {
-  type: typeof RootDispatchTypes.ClearDraggedItem;
-}
-
 export type IRootAction<T> =
   | IAddTodo<T>
-  | IUpdateStore<T>
+  | IUpdateBoards<T>
   | IDragStart
-  | IDragEnter<T>
-  | IDragEnd
-  | IStoreDraggedItem
-  | IUpdateDraggedItem
-  | IClearDraggedItem;
+  | IUpdateStore<T>
+  | IDragEnd;

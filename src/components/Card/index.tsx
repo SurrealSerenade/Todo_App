@@ -30,7 +30,7 @@ export const Card = ({ children, boardIndex, itemIndex }: IProps) => {
         : undefined;
     };
 
-  const handleClick = (boardIndex: number, itemIndex: number) => () => {
+  const handleDelete = (boardIndex: number, itemIndex: number) => () => {
     const list = [...state.boards];
 
     list[boardIndex].items.splice(itemIndex, 1);
@@ -61,7 +61,7 @@ export const Card = ({ children, boardIndex, itemIndex }: IProps) => {
     >
       <span
         className="card__action"
-        onClick={handleClick(boardIndex, itemIndex)}
+        onClick={handleDelete(boardIndex, itemIndex)}
       >
         🗑️
       </span>

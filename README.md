@@ -2,6 +2,24 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Folder Structure
+
+```sh
+├───src
+    ├───actions
+    ├───components
+    │   ├───Board
+    │   ├───Card
+    │   └───Header
+    ├───enums
+    ├───hooks
+    ├───i18n
+    ├───interfaces
+    ├───Kanban
+    ├───reducers
+    └───states
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
